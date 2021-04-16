@@ -109,14 +109,14 @@ def getStatNames(gamestats_json, selectList):
     }
 
     statValues_dict = {
-    'DBD_BloodwebPoints' : next(filter(lambda x: x['name'] == 'DBD_BloodwebPoints', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
+    'DBD_BloodwebPoints' : int(next(filter(lambda x: x['name'] == 'DBD_BloodwebPoints', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
     }
 
-    survivorRank = pipsToRank_dict[next(filter(lambda x: x['name'] == 'DBD_CamperSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0')]
-    survivorTotalPips = next(filter(lambda x: x['name'] == 'DBD_CamperSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0')
+    survivorRank = pipsToRank_dict[int(next(filter(lambda x: x['name'] == 'DBD_CamperSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0'))]
+    survivorTotalPips = int(next(filter(lambda x: x['name'] == 'DBD_CamperSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0'))
 
-    killerRank = pipsToRank_dict[next(filter(lambda x: x['name'] == 'DBD_KillerSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0')]
-    killerTotalPips = next(filter(lambda x: x['name'] == 'DBD_KillerSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0')
+    killerRank = pipsToRank_dict[int(next(filter(lambda x: x['name'] == 'DBD_KillerSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0'))]
+    killerTotalPips = int(next(filter(lambda x: x['name'] == 'DBD_KillerSkulls', gamestats_json['playerstats']['stats']), dict()).get('value', '0'))
 
     statRankValues_dict = {
     'DBD_CamperSkulls' : f"{survivorRank} (with {survivorTotalPips- rankToPips_dict.get(survivorRank)} pips)",
@@ -125,59 +125,59 @@ def getStatNames(gamestats_json, selectList):
 
     statSurvValues_dict = {
     # Survivor Stats
-    'DBD_Escape' : next(filter(lambda x: x['name'] == 'DBD_Escape', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_EscapeKO' : next(filter(lambda x: x['name'] == 'DBD_EscapeKO', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Camper9_Stat2' : next(filter(lambda x: x['name'] == 'DBD_Camper9_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC8_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC8_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_EscapeThroughHatch' : next(filter(lambda x: x['name'] == 'DBD_EscapeThroughHatch', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter12_Camper_Stat2' : next(filter(lambda x: x['name'] == 'DBD_Chapter12_Camper_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_AllEscapeThroughHatch' : next(filter(lambda x: x['name'] == 'DBD_AllEscapeThroughHatch', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_CamperNewItem' : next(filter(lambda x: x['name'] == 'DBD_CamperNewItem', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_CamperEscapeWithItemFrom' : next(filter(lambda x: x['name'] == 'DBD_CamperEscapeWithItemFrom', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_CamperFullLoadout' : next(filter(lambda x: x['name'] == 'DBD_CamperFullLoadout', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_CamperMaxScoreByCategory' : next(filter(lambda x: x['name'] == 'DBD_CamperMaxScoreByCategory', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
+    'DBD_Escape' : int(next(filter(lambda x: x['name'] == 'DBD_Escape', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_EscapeKO' : int(next(filter(lambda x: x['name'] == 'DBD_EscapeKO', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Camper9_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_Camper9_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC8_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC8_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_EscapeThroughHatch' : int(next(filter(lambda x: x['name'] == 'DBD_EscapeThroughHatch', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter12_Camper_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter12_Camper_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_AllEscapeThroughHatch' : int(next(filter(lambda x: x['name'] == 'DBD_AllEscapeThroughHatch', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_CamperNewItem' : int(next(filter(lambda x: x['name'] == 'DBD_CamperNewItem', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_CamperEscapeWithItemFrom' : int(next(filter(lambda x: x['name'] == 'DBD_CamperEscapeWithItemFrom', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_CamperFullLoadout' : int(next(filter(lambda x: x['name'] == 'DBD_CamperFullLoadout', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_CamperMaxScoreByCategory' : int(next(filter(lambda x: x['name'] == 'DBD_CamperMaxScoreByCategory', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
     'DBD_GeneratorPct_float' : int(next(filter(lambda x: x['name'] == 'DBD_GeneratorPct_float', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
-    'DBD_SkillCheckSuccess' : next(filter(lambda x: x['name'] == 'DBD_SkillCheckSuccess', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
+    'DBD_SkillCheckSuccess' : int(next(filter(lambda x: x['name'] == 'DBD_SkillCheckSuccess', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
     'DBD_HealPct_float' : int(next(filter(lambda x: x['name'] == 'DBD_HealPct_float', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
-    'DBD_Chapter14_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter14_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter15_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter15_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter17_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter17_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Camper8_Stat2' : next(filter(lambda x: x['name'] == 'DBD_Camper8_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter12_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter12_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC3_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC3_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC7_Camper_Stat2' : next(filter(lambda x: x['name'] == 'DBD_DLC7_Camper_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter9_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter9_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter10_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter10_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_HitNearHook' : next(filter(lambda x: x['name'] == 'DBD_HitNearHook', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC7_Camper_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC7_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')
+    'DBD_Chapter14_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter14_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter15_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter15_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter17_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter17_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Camper8_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_Camper8_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter12_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter12_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC3_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC3_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC7_Camper_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_DLC7_Camper_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter9_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter9_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter10_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter10_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_HitNearHook' : int(next(filter(lambda x: x['name'] == 'DBD_HitNearHook', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC7_Camper_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC7_Camper_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'))
     }
 
     statKillerValues_dict = {
     #Killer Stats
-    'DBD_SacrificedCampers' : next(filter(lambda x: x['name'] == 'DBD_SacrificedCampers', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_KilledCampers' : next(filter(lambda x: x['name'] == 'DBD_KilledCampers', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter11_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter11_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC8_Slasher_Stat2' : next(filter(lambda x: x['name'] == 'DBD_DLC8_Slasher_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_SlasherFullLoadout' : next(filter(lambda x: x['name'] == 'DBD_SlasherFullLoadout', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC7_Slasher_Stat2' : next(filter(lambda x: x['name'] == 'DBD_DLC7_Slasher_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter12_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter12_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter15_Slasher_Stat2' : next(filter(lambda x: x['name'] == 'DBD_Chapter15_Slasher_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter9_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter9_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter10_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter10_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Event1_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Event1_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter14_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter14_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_TrapPickup' : next(filter(lambda x: x['name'] == 'DBD_TrapPickup', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_UncloakAttack' : next(filter(lambda x: x['name'] == 'DBD_UncloakAttack', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_ChainsawHit' : next(filter(lambda x: x['name'] == 'DBD_ChainsawHit', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_SlasherChainAttack' : next(filter(lambda x: x['name'] == 'DBD_SlasherChainAttack', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC3_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC3_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_SlasherTierIncrement' : next(filter(lambda x: x['name'] == 'DBD_SlasherTierIncrement', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC4_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC4_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC5_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC5_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC7_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC7_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_DLC8_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_DLC8_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter16_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter16_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
-    'DBD_Chapter17_Slasher_Stat1' : next(filter(lambda x: x['name'] == 'DBD_Chapter17_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0'),
+    'DBD_SacrificedCampers' : int(next(filter(lambda x: x['name'] == 'DBD_SacrificedCampers', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_KilledCampers' : int(next(filter(lambda x: x['name'] == 'DBD_KilledCampers', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter11_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter11_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC8_Slasher_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_DLC8_Slasher_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_SlasherFullLoadout' : int(next(filter(lambda x: x['name'] == 'DBD_SlasherFullLoadout', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC7_Slasher_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_DLC7_Slasher_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter12_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter12_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter15_Slasher_Stat2' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter15_Slasher_Stat2', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter9_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter9_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter10_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter10_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Event1_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Event1_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter14_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter14_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_TrapPickup' : int(next(filter(lambda x: x['name'] == 'DBD_TrapPickup', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_UncloakAttack' : int(next(filter(lambda x: x['name'] == 'DBD_UncloakAttack', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_ChainsawHit' : int(next(filter(lambda x: x['name'] == 'DBD_ChainsawHit', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_SlasherChainAttack' : int(next(filter(lambda x: x['name'] == 'DBD_SlasherChainAttack', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC3_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC3_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_SlasherTierIncrement' : int(next(filter(lambda x: x['name'] == 'DBD_SlasherTierIncrement', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC4_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC4_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC5_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC5_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC7_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC7_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_DLC8_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_DLC8_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter16_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter16_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
+    'DBD_Chapter17_Slasher_Stat1' : int(next(filter(lambda x: x['name'] == 'DBD_Chapter17_Slasher_Stat1', gamestats_json['playerstats']['stats']), dict()).get('value', '0')),
     }
 
     if selectList == 'names':

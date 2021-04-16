@@ -9,11 +9,19 @@ client.remove_command('help')
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("!help"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(f"!help | Currently Serving: {str(len(client.guilds))} Servers"))
     print("Bot is ready!")
     print(f"Logged in as {client.user.name}")
     print(f"Currently on {str(len(client.guilds))} servers!")
     print("--------------------------------")
+
+@client.event
+async def on_guild_join(guild):
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(f"!help | Currently Serving: {str(len(client.guilds))} Servers"))
+
+@client.event
+async def on_guild_remove(guild):
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(f"!help | Currently Serving: {str(len(client.guilds))} Servers"))
 
 @client.command()
 async def ping(ctx):
