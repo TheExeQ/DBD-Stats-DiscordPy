@@ -50,7 +50,7 @@ class SteamAPI(commands.Cog):
             return
 
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v2/?key=9AA1B9F1F8B6F5EFDB9AABDA03F1EFDE&steamid={steamid}&appid=381210") as r:
+            async with session.get(f"https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v2/?key={api_key}&steamid={steamid}&appid=381210") as r:
                 if r.status == 200:
                     gamestats_json = await r.json()
                 else:
